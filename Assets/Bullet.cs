@@ -12,6 +12,9 @@ public class Bullet : MonoBehaviour
         _direction = direction.normalized;
         _damage = damage;
         _owner = owner;
+
+        float angleRotation = -Mathf.Atan2(direction.x, direction.y) * 180 / Mathf.PI;
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, angleRotation);
     }
 
     private void Update()

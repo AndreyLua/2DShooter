@@ -12,7 +12,7 @@ public class PlayerHandMover : MonoBehaviour
 
     private void Awake()
     {
-     
+        SetStartPosition();
     }
 
     private void SetStartPosition()

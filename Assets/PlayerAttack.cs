@@ -1,19 +1,21 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private TMPHoldButton _button;
-
     [SerializeField] private BulletFactory _bulletFactory;
 
-    private IAttack _attacker;
+    private IWeaponAttack _attacker;
     private bool _canAttack = true;
     private bool _isAttack = false;
 
+    public event Action<Vector2> PlayerAttacking;
+
     private void Awake()
     {
-        _attacker = gameObject.GetComponent<IAttack>();
+        _attacker = gameObject.GetComponent<IWeaponAttack>();
         _button.Hold += ChangeStateAttack;
     }
 
@@ -28,7 +30,6 @@ public class PlayerAttack : MonoBehaviour
         _isAttack = isAttack;
     }
 
-
     private void Attack()
     {
         if (_attacker.Zone.Targets.Count>0)
@@ -37,9 +38,11 @@ public class PlayerAttack : MonoBehaviour
             {
                 IDamageble nearestTarget = GetNearestTarget();
 
-                Vector2 direction = nearestTarget.Transform.position - gameObject.transform.position;
+                PlayerAttacking?.Invoke(nearestTarget.Transform.position);
 
-                _bulletFactory.Create(gameObject.transform.position, direction, _attacker.Damage,_attacker);
+                Vector2 direction = (nearestTarget.Transform.position - _attacker.Weapon.FirePoint.position).normalized;
+
+                _bulletFactory.Create(_attacker.Weapon.FirePoint.position, direction, _attacker.Damage,_attacker);
                 _canAttack = false;
                 DOTween.Sequence().AppendInterval(_attacker.Rate).AppendCallback(() => _canAttack = true);
             }
@@ -56,8 +59,7 @@ public class PlayerAttack : MonoBehaviour
                 Vector3.Distance(nearestTarget.Transform.position, gameObject.transform.position))
             {
                 nearestTarget = _attacker.Zone.Targets[i];
-            }
-               
+            } 
         }
         return nearestTarget;
     }

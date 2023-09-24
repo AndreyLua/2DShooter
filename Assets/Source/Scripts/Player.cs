@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour, IMoveble, IAttack, IDamageble
+public class Player : MonoBehaviour, IMoveble, IWeaponAttack, IDamageble
 {
     [SerializeField] private AttackZone _attackZone;
     [SerializeField] private WeaponBase _weaponBase;
@@ -15,6 +15,7 @@ public class Player : MonoBehaviour, IMoveble, IAttack, IDamageble
     public float Damage => _weaponBase.Damage;
     public float Rate => _weaponBase.Rate;
     public AttackZone Zone => _attackZone;
+    public WeaponBase Weapon => _weaponBase;
 
     public Transform Transform => _rigidbody.transform;
 

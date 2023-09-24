@@ -9,7 +9,7 @@ public class FleshEnemy : EnemyBase, IAttack, IMoveble
     private Rigidbody2D _rigidbody;
     private Health _health;
     private bool _canAttack = true;
-    private float _distanceAttack = 1; 
+    private float _distanceAttack = 2; 
 
     public float Damage => 20;
     public float Rate => 1;
