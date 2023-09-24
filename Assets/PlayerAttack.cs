@@ -3,19 +3,31 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private TMPButton _button;
+    [SerializeField] private TMPHoldButton _button;
 
     [SerializeField] private BulletFactory _bulletFactory;
 
     private IAttack _attacker;
     private bool _canAttack = true;
-
+    private bool _isAttack = false;
 
     private void Awake()
     {
         _attacker = gameObject.GetComponent<IAttack>();
-        _button.Clicked += Attack;
+        _button.Hold += ChangeStateAttack;
     }
+
+    private void Update()
+    {
+        if (_isAttack)
+            Attack();
+    }
+
+    private void ChangeStateAttack(bool isAttack)
+    {
+        _isAttack = isAttack;
+    }
+
 
     private void Attack()
     {

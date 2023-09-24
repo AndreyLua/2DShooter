@@ -8,7 +8,7 @@ public class MapTileBuilder : MonoBehaviour
 
     private void Awake()
     {
-        Vector3 scale  = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height))*2;
+        Vector3 scale  = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height))*10;
 
         gameObject.transform.position = new Vector3(-scale.x/2, scale.y / 2,-0.04f);
 

@@ -28,10 +28,8 @@ public class FleshEnemy : EnemyBase, IAttack, IMoveble
 
     private void Update()
     {
-        Debug.Log(_attackZone.Targets.Count);
         if (_attackZone.Targets.Count > 0)
         {
-            Debug.Log("fkldsfsjlfjsedklfsd");
             if (Vector3.Distance(_attackZone.Targets[0].Transform.position, gameObject.transform.position) <= _distanceAttack)
                 AttackTarget();
             else

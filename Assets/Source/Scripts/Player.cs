@@ -3,9 +3,10 @@ using UnityEngine;
 public class Player : MonoBehaviour, IMoveble, IAttack, IDamageble
 {
     [SerializeField] private AttackZone _attackZone;
-
     [SerializeField] private WeaponBase _weaponBase;
+    [SerializeField] private HealthView _healthView;
 
+    private Health _health;
     private Rigidbody2D _rigidbody;
 
     public float Speed => 4;
@@ -17,13 +18,15 @@ public class Player : MonoBehaviour, IMoveble, IAttack, IDamageble
 
     public Transform Transform => _rigidbody.transform;
 
-    public void TakeDamage(float damage)
-    {
-        Debug.Log("dfskmfsdjlkfds");
-    }
-
     private void Awake()
     {
+        _health = new Health(100, 100);
+        _healthView.Init(_health);
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
+    }
+
+    public void TakeDamage(float damage)
+    {
+        _health.TakeDamage(damage);
     }
 }
