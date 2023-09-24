@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthView: {fileID: 1881406671392019345}
+  _attackZone: {fileID: 1674149481500960946}
 --- !u!61 &5586555315528886683
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -330,6 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4077124712906041717}
   - component: {fileID: 5199330087949037574}
+  - component: {fileID: 1674149481500960946}
   m_Layer: 0
   m_Name: AttackZone
   m_TagString: Untagged
@@ -368,6 +370,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 3.76
+--- !u!114 &1674149481500960946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066385304446159806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e67e6f7c697deb44a6af4963656bbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8912376278413232591
 GameObject:
   m_ObjectHideFlags: 0

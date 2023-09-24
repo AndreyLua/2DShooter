@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour, IMoveble, IAttack
+public class Player : MonoBehaviour, IMoveble, IAttack, IDamageble
 {
     [SerializeField] private AttackZone _attackZone;
 
@@ -9,14 +9,18 @@ public class Player : MonoBehaviour, IMoveble, IAttack
     private Rigidbody2D _rigidbody;
 
     public float Speed => 4;
-
     public Rigidbody2D Rigidbody => _rigidbody;
 
     public float Damage => _weaponBase.Damage;
-
     public float Rate => _weaponBase.Rate;
-
     public AttackZone Zone => _attackZone;
+
+    public Transform Transform => _rigidbody.transform;
+
+    public void TakeDamage(float damage)
+    {
+        Debug.Log("dfskmfsdjlkfds");
+    }
 
     private void Awake()
     {

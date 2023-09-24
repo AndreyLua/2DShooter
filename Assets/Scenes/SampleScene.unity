@@ -610,7 +610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5305059889900814943, guid: 2e60bb7f5fac0914b825633e25d492f9, type: 3}
       propertyPath: m_Name
-      value: TMPButton (1)
+      value: Bag
       objectReference: {fileID: 0}
     - target: {fileID: 5305059890528977503, guid: 2e60bb7f5fac0914b825633e25d492f9, type: 3}
       propertyPath: m_text
@@ -1233,7 +1233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5305059889900814943, guid: 2e60bb7f5fac0914b825633e25d492f9, type: 3}
       propertyPath: m_Name
-      value: TMPButton
+      value: Fire
       objectReference: {fileID: 0}
     - target: {fileID: 5305059890528977503, guid: 2e60bb7f5fac0914b825633e25d492f9, type: 3}
       propertyPath: m_text
@@ -2404,7 +2404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 652637308316982104, guid: b6e11157b811f2d4eb9950ab8a30dde1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.55
+      value: 2.67
       objectReference: {fileID: 0}
     - target: {fileID: 652637308316982104, guid: b6e11157b811f2d4eb9950ab8a30dde1, type: 3}
       propertyPath: m_LocalPosition.y
