@@ -19,16 +19,12 @@ public class Bullet : MonoBehaviour
         gameObject.transform.position += (Vector3)_direction * _speed * Time.deltaTime;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         IDamageble damageble;
-        if (collision.gameObject.TryGetComponent<IDamageble>(out damageble) && _owner != damageble)
+        if (other.gameObject.TryGetComponent<IDamageble>(out damageble) && _owner != damageble)
         {
             damageble.TakeDamage(_damage);
-            Destroy(gameObject);
-        }
-        else
-        {
             Destroy(gameObject);
         }
     }

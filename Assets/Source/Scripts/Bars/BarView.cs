@@ -6,8 +6,8 @@ public class BarView : MonoBehaviour
     [SerializeField] private SpriteRenderer _bar;
     [SerializeField] private SpriteRenderer _dynamicBar;
 
-    [SerializeField] private float _updateValueDuration = 0.4f;
-    [SerializeField] private float _updateValueDynamicRatio = 2;
+    private float _updateValueDuration = 0.2f;
+    private float _updateValueDynamicRatio =4;
 
     private BarStorage _storage;
 
@@ -20,7 +20,7 @@ public class BarView : MonoBehaviour
     public virtual void UpdateBar()
     {
         float storageRatio = _storage.Value / _storage.MaxValue;
-        _bar.transform.DOScaleX(storageRatio, _updateValueDuration);
-        _dynamicBar.transform.DOScaleX(storageRatio, _updateValueDuration/2);
+        _bar.transform.DOScaleX(_storage.Value / _storage.MaxValue, _updateValueDuration);
+        _dynamicBar.transform.DOScaleX(_storage.Value / _storage.MaxValue, _updateValueDuration* _updateValueDynamicRatio);
     }
 }

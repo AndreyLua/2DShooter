@@ -4,6 +4,8 @@ public class Health
 {
     private BarStorage _barStorage;
 
+    public BarStorage BarStorage => _barStorage;
+
     public event Action Died;
     public event Action Changed;
 
@@ -11,7 +13,17 @@ public class Health
     {
         _barStorage = new BarStorage(value, maxValue);
         _barStorage.ChangeValue += Changed;
-        _barStorage.StorageEmpty += Died;
+        _barStorage.StorageEmpty += OnStorageEmpty;
+    }
+
+    public void OnStorageEmpty()
+    {
+        Died?.Invoke();
+    }
+
+    public void OnChangeValue()
+    {
+        Changed?.Invoke();
     }
 
     public void TakeDamage(float value)
