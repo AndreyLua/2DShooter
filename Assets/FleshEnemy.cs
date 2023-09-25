@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
 
 public class FleshEnemy : EnemyBase, IAttack, IMoveble
@@ -17,6 +18,8 @@ public class FleshEnemy : EnemyBase, IAttack, IMoveble
 
     public float Speed => 2;
     public Rigidbody2D Rigidbody => _rigidbody;
+
+    public event Action Died;
 
     private void Awake()
     {
@@ -61,6 +64,7 @@ public class FleshEnemy : EnemyBase, IAttack, IMoveble
 
     private void OnDied()
     {
+        Died?.Invoke();
         gameObject.SetActive(false);
     }
 }
