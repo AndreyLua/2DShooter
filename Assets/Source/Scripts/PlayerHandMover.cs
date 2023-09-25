@@ -9,8 +9,15 @@ public class PlayerHandMover : MonoBehaviour
     [SerializeField] private Transform _rightHand;
 
     [SerializeField] private WeaponBase _weapon;
+    [SerializeField] private PlayerAttack _playerAttack;
 
     private void Awake()
+    {
+        _playerAttack.PlayerAttacking += OnPlayerAttacking;
+        SetStartPosition();
+    }
+
+    private void OnPlayerAttacking(Vector2 target)
     {
         SetStartPosition();
     }

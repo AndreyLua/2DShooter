@@ -1,4 +1,4 @@
 ﻿public interface ICollector
 {
-    void TakeMoney(int value);
+    void CollectItem(ItemBase item);
 }

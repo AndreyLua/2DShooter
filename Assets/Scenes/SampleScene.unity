@@ -705,7 +705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5305059889900814943, guid: 2e60bb7f5fac0914b825633e25d492f9, type: 3}
       propertyPath: m_Name
-      value: Bag
+      value: BagButton
       objectReference: {fileID: 0}
     - target: {fileID: 5305059890528977503, guid: 2e60bb7f5fac0914b825633e25d492f9, type: 3}
       propertyPath: m_text
@@ -1164,6 +1164,7 @@ MonoBehaviour:
   _leftHand: {fileID: 378955038}
   _rightHand: {fileID: 2107488064}
   _weapon: {fileID: 1120385480}
+  _playerAttack: {fileID: 891421231}
 --- !u!114 &891421226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1303,6 +1304,42 @@ Transform:
   m_Father: {fileID: 1120385479}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1076730879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1076730880}
+  m_Layer: 5
+  m_Name: BagPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1076730880
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076730879}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2075010473}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1120385478
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,6 +2432,7 @@ RectTransform:
   - {fileID: 1739842081}
   - {fileID: 5305059890596120411}
   - {fileID: 487037622}
+  - {fileID: 1076730880}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

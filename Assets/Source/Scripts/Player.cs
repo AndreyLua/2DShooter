@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour, IMoveble, IWeaponAttack, IDamageble
+public class Player : MonoBehaviour, IMoveble, IWeaponAttack, IDamageble, ICollector
 {
     [SerializeField] private AttackZone _attackZone;
     [SerializeField] private WeaponBase _weaponBase;
@@ -29,5 +29,10 @@ public class Player : MonoBehaviour, IMoveble, IWeaponAttack, IDamageble
     public void TakeDamage(float damage)
     {
         _health.TakeDamage(damage);
+    }
+
+    public void CollectItem(ItemBase item)
+    {
+        
     }
 }

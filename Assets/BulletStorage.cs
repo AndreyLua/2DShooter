@@ -20,3 +20,4 @@ public class BulletStorage : MonoBehaviour
         _bullets.Remove(bullet);
     }
 }
+
