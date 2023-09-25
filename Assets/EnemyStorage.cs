@@ -6,6 +6,7 @@ public class EnemyStorage : MonoBehaviour
 {
     private List<EnemyBase> _enemies;
 
+    public event Action<EnemyBase> AddedEnemy;
     public event Action<EnemyBase> RemovedEnemy;
 
     private void Awake()
@@ -16,11 +17,12 @@ public class EnemyStorage : MonoBehaviour
     public void Add(EnemyBase enemy)
     {
         _enemies.Add(enemy);
+        AddedEnemy?.Invoke(enemy);
     }
 
     public void Remove(EnemyBase enemy)
     {
-        RemovedEnemy?.Invoke(enemy);
         _enemies.Remove(enemy);
+        RemovedEnemy?.Invoke(enemy);
     }
 }

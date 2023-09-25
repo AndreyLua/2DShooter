@@ -8,6 +8,7 @@ public class Player : MonoBehaviour, IMoveble, IWeaponAttack, IDamageble, IColle
 
     private Health _health;
     private Rigidbody2D _rigidbody;
+    private Bag _bag;
 
     public float Speed => 4;
     public Rigidbody2D Rigidbody => _rigidbody;
@@ -33,6 +34,6 @@ public class Player : MonoBehaviour, IMoveble, IWeaponAttack, IDamageble, IColle
 
     public void CollectItem(ItemBase item)
     {
-        
+        _bag.AddedItem(item);
     }
 }

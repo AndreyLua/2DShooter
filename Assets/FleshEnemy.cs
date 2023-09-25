@@ -19,8 +19,6 @@ public class FleshEnemy : EnemyBase, IAttack, IMoveble
     public float Speed => 2;
     public Rigidbody2D Rigidbody => _rigidbody;
 
-    public event Action Died;
-
     private void Awake()
     {
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
@@ -56,7 +54,6 @@ public class FleshEnemy : EnemyBase, IAttack, IMoveble
         }
     }
 
-
     public override void TakeDamage(float damage)
     {
         _health.TakeDamage(damage);
@@ -64,8 +61,8 @@ public class FleshEnemy : EnemyBase, IAttack, IMoveble
 
     private void OnDied()
     {
-        Died?.Invoke();
         gameObject.SetActive(false);
+        SendDiedEvent();
     }
 }
 
