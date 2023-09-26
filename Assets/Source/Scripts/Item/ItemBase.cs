@@ -10,7 +10,7 @@ public abstract class ItemBase : MonoBehaviour
 
     private void Awake()
     {
-        _spriteRender = gameObject.GetComponent<SpriteRenderer>();
+        _spriteRender = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
     private void SetSprite(Sprite sprite)
