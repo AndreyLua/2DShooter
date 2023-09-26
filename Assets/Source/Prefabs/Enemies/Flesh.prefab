@@ -80,7 +80,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!95 &2279384301675837614
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -97,7 +97,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &957513173230798558
 Rigidbody2D:
   serializedVersion: 4
@@ -669,7 +670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7430963708606745123, guid: 0cd71be1b47dfe5428cd0be9e2b7d7c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7430963708606745123, guid: 0cd71be1b47dfe5428cd0be9e2b7d7c4, type: 3}
       propertyPath: m_LocalRotation.w
