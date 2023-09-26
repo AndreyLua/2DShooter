@@ -29,6 +29,12 @@ public class Bullet : MonoBehaviour
         {
             damageble.TakeDamage(_damage);
             Destroy(gameObject);
+            return;
+        }
+        MapBorder border;
+        if (other.gameObject.TryGetComponent<MapBorder>(out border))
+        {
+            Destroy(gameObject);
         }
     }
 }

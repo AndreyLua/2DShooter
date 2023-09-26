@@ -27,4 +27,11 @@ public class Bag : MonoBehaviour
         BagRemovingItem?.Invoke(item);
         _items.Remove(item);
     }
+
+    public void RemoveItemOfType(ItemType type)
+    {
+        for (int i = _items.Count - 1; i >= 0; i--)
+            if (_items[i].Type == type)
+                RemoveItem(_items[i]);
+    }
 }

@@ -61,9 +61,26 @@ public class BagView : MonoBehaviour
 
     private void OnBagRemovingItem(ItemBase item)
     {
-         RemovingItemView?.Invoke(_viewItems[(_typeWithPositionItems[item.Type])]);
-        _freePositions.Enqueue(_typeWithPositionItems[item.Type]);
-        _viewItems.Remove(_typeWithPositionItems[item.Type]);
-        _typeWithPositionItems.Remove(item.Type);
+        if (_typeWithPositionItems.ContainsKey(item.Type))
+        {
+            Vector2 position = _typeWithPositionItems[item.Type];
+            ItemView itemView = _viewItems[position];
+            if (_itemView.Count > 0)
+            {
+                itemView.RemoveCount();
+            }
+            else
+            {
+                RemovingItemView?.Invoke(itemView);
+                _freePositions.Enqueue(position);
+
+                ItemView view = _viewItems[position];
+                Destroy(view.gameObject);
+
+                _viewItems.Remove(position);
+                _typeWithPositionItems.Remove(item.Type);
+
+            }
+        }
     }
 }

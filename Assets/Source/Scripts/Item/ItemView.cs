@@ -9,20 +9,24 @@ public class ItemView : MonoBehaviour
     private Image _image;
     private ItemType _type;
     private TMPButton _button;
+    private int _count;
 
-    public event Action ShowDeleteButton;   
+    public int Count => _count;
+    public ItemType Type => _type;
+    public event Action<ItemView> ShowDeleteButton;   
 
     private void Awake()
     {
+        _count = 1;
         _button = gameObject.GetComponent<TMPButton>();
         _image = gameObject.GetComponentInChildren<Image>();
-        _text.text = "1";
+        _text.text = _count.ToString();
         _button.Clicked += OnImageClicked;
     }
 
     private void OnImageClicked()
     {
-        ShowDeleteButton?.Invoke();
+        ShowDeleteButton?.Invoke(this);
     }
 
     public void Init(ItemType type, Sprite sprite)
@@ -33,7 +37,14 @@ public class ItemView : MonoBehaviour
 
     public void AddedCount()
     {
-        _text.text = (int.Parse(_text.text) + 1).ToString();
+        _count++;
+        _text.text = _count.ToString();
+    }
+
+    public void RemoveCount()
+    {
+        _count--;
+        _text.text = _count.ToString();
     }
 
     public void SetSprite(Sprite sprite)
