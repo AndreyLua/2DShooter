@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour, IMoveble, IWeaponAttack, IDamageble, ICollector
@@ -20,10 +21,15 @@ public class Player : MonoBehaviour, IMoveble, IWeaponAttack, IDamageble, IColle
 
     public Transform Transform => _rigidbody.transform;
 
+    public event Action Died;
+
     private void Awake()
     {
         _health = new Health(100, 100);
         _healthView.Init(_health);
+
+        _health.Died += OnDied;
+
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
         _bag = gameObject.GetComponent<Bag>();
     }
@@ -37,4 +43,10 @@ public class Player : MonoBehaviour, IMoveble, IWeaponAttack, IDamageble, IColle
     {
         _bag.AddedItem(item);
     }
+
+    public void OnDied()
+    {
+        Died?.Invoke();
+    }
+
 }
