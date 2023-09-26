@@ -5,6 +5,7 @@ public abstract class ItemBase : MonoBehaviour
     private SpriteRenderer _spriteRender;
     private ItemType _itemType;
 
+    public Sprite Sprite => _spriteRender.sprite;
     public ItemType Type => _itemType;
 
     private void Awake()
