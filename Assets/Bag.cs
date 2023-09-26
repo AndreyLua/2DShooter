@@ -6,7 +6,10 @@ public class Bag : MonoBehaviour
 {
     private List<ItemBase> _items;
 
-    public event Action BagChanged;
+    public List<ItemBase> Items => _items;
+
+    public event Action<ItemBase> BagAddedItem;
+    public event Action<ItemBase> BagRemovingItem;
 
     private void Awake()
     {
@@ -16,12 +19,12 @@ public class Bag : MonoBehaviour
     public void AddedItem(ItemBase item)
     {
         _items.Add(item);
-        BagChanged?.Invoke();
+        BagAddedItem?.Invoke(item);
     }
 
     public void RemoveItem(ItemBase item)
     {
+        BagRemovingItem?.Invoke(item);
         _items.Remove(item);
-        BagChanged?.Invoke();
     }
 }

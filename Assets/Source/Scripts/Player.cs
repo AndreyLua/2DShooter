@@ -25,6 +25,7 @@ public class Player : MonoBehaviour, IMoveble, IWeaponAttack, IDamageble, IColle
         _health = new Health(100, 100);
         _healthView.Init(_health);
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
+        _bag = gameObject.GetComponent<Bag>();
     }
 
     public void TakeDamage(float damage)
